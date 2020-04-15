@@ -111,7 +111,7 @@ Stop-MDATPAppRestriction
 Stop-MDATPIsolation
 ```
 
-For more details about the cmdlets included in this module check out the [cmdlets documentation page](.(../../docs/PSMDATP.md)
+For more details about the cmdlets included in this module check out the [cmdlets documentation page](../../docs/PSMDATP.md)
 
 ### Retrieve MDATP Alerts
 
