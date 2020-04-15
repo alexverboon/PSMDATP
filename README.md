@@ -3,7 +3,7 @@
 [![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey)
 
 <p align="center">
-    <img src="./media/psmdatp.png" alt="PSMDAT Logo" >
+    <img src="./media/snall_psmdatp.png" alt="PSMDATP Logo" >
 </p>
 
 Welcome to the Microsoft Defender Advanced Threat Protection PowerShell module!
