@@ -1,6 +1,8 @@
 # Microsoft Defender Advanced Threat Protection PowerShell Module
 
-[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey)
+[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey) [![PowerShell Gallery][psgallery-img]][psgallery-site]
+
+[psgallery-site]:  https://www.powershellgallery.com/packages/PSMDATP
 
 <p align="center">
     <img src="./media/small_psmdatp.png" alt="PSMDATP Logo" >
@@ -146,3 +148,7 @@ I have the following on my to-do list:
 - Add cmdlets to manage custom indicators
 - Add more query templates for advanced hunting
 - Create more Module related Pester tests
+
+## Credits
+
+I used [Catesta](https://github.com/techthoughts2/Catesta/blob/master/README.md) for this project
