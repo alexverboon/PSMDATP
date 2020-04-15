@@ -37,12 +37,24 @@ To get started with the module, open your PowerShell terminal and install the mo
 ```powershell
 Install-Module PSMDATP -Scope CurrentUser
 ```
-
 ## App Registration
 
 ## Initial Configuration
 
-When you have installed the module, you will find a file **TEMPLATE_PoshMTPconfig.json** in the Module folder. Rename this file to **PoshMTPConfig.json** and enter your API settings.
+When you have installed the module and registered the App in AzureAD, you will find a file **TEMPLATE_PoshMTPconfig.json** in the Module folder. Rename this file to **PoshMTPConfig.json** and enter your API settings. Then copy the file in the root of the Module folder.
+
+***Example:***
+
+```powershell
+"C:\Users\User1\Documents\WindowsPowerShell\Modules\PSMDATP"
+───PSMDATP
+│   │   PoshMTPconfig.json
+│   │
+│   └───0.0.1
+│           PSMDATP.psd1
+│           PSMDATP.psm1
+│           TEMPLATE_PoshMTPconfig.json
+```
 
 At present the PSMDATP PowerShell module only requires the API_MDATP information
 
@@ -62,6 +74,10 @@ At present the PSMDATP PowerShell module only requires the API_MDATP information
                     }
 }
 ```
+
+## Important
+
+I am going to assume that you are familiar with MDATP as such and understand the consequences of triggering actions on devices. Where applicable the cmdlets support the use the ***-whatif*** parameter. Think before pressing the key!
 
 ## Running your first commands
 
@@ -94,6 +110,8 @@ Start-MDATPIsolation
 Stop-MDATPAppRestriction
 Stop-MDATPIsolation
 ```
+
+For more details about the cmdlets included in this module check out the [cmdlets documentation page](PSMDATP.MD)
 
 ### Retrieve MDATP Alerts
 

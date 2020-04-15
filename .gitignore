@@ -1,6 +1,8 @@
 Archive
 Artifacts
+BuildLocal
 cov.xml
+poshmtpconfig.json
 # OS generated files #
 ######################
 .DS_Store
