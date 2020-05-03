@@ -12,7 +12,7 @@
 RootModule = 'PSMDATP.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -70,6 +70,7 @@ Description = '"Manage Microsoft Defender ATP with PowerShell"'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Add-MDATPDeviceTag',
+'Add-MDATPIndicator',
 'Get-MDATPAlert',
 'Get-MDATPCollectionPackageUri',
 'Get-MDATPDevice','Get-MDATPDeviceAction',
@@ -79,6 +80,7 @@ FunctionsToExport = 'Add-MDATPDeviceTag',
 'Get-MDATPQuery',
 'Remove-MDATPDevice',
 'Remove-MDATPDeviceTag',
+'Remove-MDATPIndicator',
 'Start-MDATPAppRestriction',
 'Start-MDATPAVScan',
 'Start-MDATPInvestigation',
@@ -112,14 +114,7 @@ PrivateData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
          Tags = @(
-                'PowerShell',
-		'MDATP',
-		'Security',
-		'Microsoft Defender',
-		'Microsoft Defender ATP',
-		'Automation',
-		'API'
-	)
+        'PowerShell','MDATP','Security','MicrosoftDefender','MicrosoftDefenderATP','Automation','API')
 
         # A URL to the license for this module.
         # LicenseUri = ''
