@@ -3,6 +3,9 @@ function Remove-MDATPIndicator{
     .Synopsis
     Remove-MDATPIndicator
 
+    .Description
+    Remove-MDATPIndicator removes a custom indicator from MDATP
+
     .PARAMETER IndicatorID
     The unique custom indicator ID
 

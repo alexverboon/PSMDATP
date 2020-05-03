@@ -2,7 +2,7 @@
 Module Name: PSMDATP
 Module Guid: 5b1f66a1-78d5-4d12-9c89-0bb749da773f
 Download Help Link: NA
-Help Version: 0.0.1
+Help Version: 0.0.2
 Locale: en-US
 ---
 
@@ -13,6 +13,9 @@ Locale: en-US
 ## PSMDATP Cmdlets
 ### [Add-MDATPDeviceTag](Add-MDATPDeviceTag.md)
 Add-MDATPDeviceTag
+
+### [Add-MDATPIndicator](Add-MDATPIndicator.md)
+Add-MDATPIndicator
 
 ### [Get-MDATPAlert](Get-MDATPAlert.md)
 Get-MDATPAlert
@@ -43,6 +46,9 @@ Remove-MDATPDevice
 
 ### [Remove-MDATPDeviceTag](Remove-MDATPDeviceTag.md)
 Remove-MDATPDeviceTag
+
+### [Remove-MDATPIndicator](Remove-MDATPIndicator.md)
+Remove-MDATPIndicator
 
 ### [Start-MDATPAppRestriction](Start-MDATPAppRestriction.md)
 Start-MDATPAppRestriction
