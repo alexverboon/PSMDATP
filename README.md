@@ -1,6 +1,7 @@
 # Microsoft Defender Advanced Threat Protection PowerShell Module
 
-[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey) ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/psmdatp) ![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/psmdatp)
+[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey)
+[![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/psmdatp)](https://www.powershellgallery.com/packages/PSMDATP) [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/psmdatp)](https://www.powershellgallery.com/packages/PSMDATP)
 
 
 <p align="center">
