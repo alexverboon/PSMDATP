@@ -190,31 +190,31 @@
         $AddIndicator = $AddIndicator | ConvertTo-Json
         Write-Verbose "Request body: $AddIndicator"
 
-            if ($pscmdlet.ShouldProcess("$IndicatorValue", "Adding Indicator: $IndicatorType")){
-                Try{
-                    $response = Invoke-WebRequest -Uri $indicatorsuri -Headers $Headers -Method Post -Body $AddIndicator
-                    If ($response.StatusCode -eq 200){
-                        Write-Verbose "Indicator: $IndicatorType -  $IndicatorValue was successfully added "
-                        $True
-                    }
-                    Else{
-                        Write-Warning "Adding Indicator: $IndicatorType -  $IndicatorValue failed "
-                        Write-Error "StatusCode: $($response.StatusCode)"
-                        $False
-                    }
+        if ($pscmdlet.ShouldProcess("$IndicatorValue", "Adding Indicator: $IndicatorType")){
+            Try{
+                $response = Invoke-WebRequest -Uri $indicatorsuri -Headers $Headers -Method Post -Body $AddIndicator
+                If ($response.StatusCode -eq 200){
+                    Write-Verbose "Indicator: $IndicatorType -  $IndicatorValue was successfully added "
+                    $True
                 }
-                Catch{
-                    $ex = $_.Exception
-                    $errorResponse = $ex.Response.GetResponseStream()
-                    $reader = New-Object System.IO.StreamReader($errorResponse)
-                    $reader.BaseStream.Position = 0
-                    $reader.DiscardBufferedData()
-                    $responseBody = $reader.ReadToEnd();
-                    Write-Verbose "Response content:`n$responseBody"
-                    Write-Error "Request to $Uri failed with HTTP Status $($ex.Response.StatusCode) $($ex.Response.StatusDescription)"
+                Else{
+                    Write-Warning "Adding Indicator: $IndicatorType -  $IndicatorValue failed "
+                    Write-Error "StatusCode: $($response.StatusCode)"
+                    $False
                 }
             }
+            Catch{
+                $ex = $_.Exception
+                $errorResponse = $ex.Response.GetResponseStream()
+                $reader = New-Object System.IO.StreamReader($errorResponse)
+                $reader.BaseStream.Position = 0
+                $reader.DiscardBufferedData()
+                $responseBody = $reader.ReadToEnd();
+                Write-Verbose "Response content:`n$responseBody"
+                Write-Error "Request to $Uri failed with HTTP Status $($ex.Response.StatusCode) $($ex.Response.StatusDescription)"
+            }
         }
+    }
     End{
         Write-Verbose "IndicatorType: $IndicatorType"
         Write-Verbose "IndicatorValue: $IndicatorValue"

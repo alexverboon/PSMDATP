@@ -36,7 +36,7 @@ $str = @()
 $str = 'Clean', 'ValidateRequirements'
 $str += 'FormattingCheck'
 $str += 'Analyze', 'Test'
-$str += 'CreateHelpStart'
+# $str += 'CreateHelpStart'
 $str += 'Build', 'InfraTest', 'Archive'
 Add-BuildTask -Name . -Jobs $str
 

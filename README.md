@@ -1,7 +1,6 @@
 # Microsoft Defender Advanced Threat Protection PowerShell Module
 
-[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey)
-
+[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey) ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/psmdatp) ![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/psmdatp)
 
 
 <p align="center">
@@ -52,7 +51,7 @@ When you have installed the module and registered the App in AzureAD, you will f
 ───PSMDATP
 │   │   PoshMTPconfig.json
 │   │
-│   └───0.0.1
+│   └───0.0.2
 │           PSMDATP.psd1
 │           PSMDATP.psm1
 │           TEMPLATE_PoshMTPconfig.json
@@ -133,6 +132,8 @@ Run the following command to list all MDATP registered devices
 Get-MDATPDevice -All
 ```
 
+---
+
 ## Contributing
 
 If you have an idea or want to contribute to this project please submit a suggestion
@@ -141,15 +142,28 @@ If you have an idea or want to contribute to this project please submit a sugges
 
 **Alex Verboon** [Twitter](https://twitter.com/alexverboon)
 
+---
+
+## Release Notes
+
+| Version |    Date    |                           Notes                           |
+| ------- | ---------- | --------------------------------------------------------- |
+| 0.0.1   | 15.04.2020 | Initial Release                                           |
+| 0.0.2   | 03.05.2020 | Added Add-MDATPIndicator and Remove-MDATPIndictor cmdlets |
+
+---
+
 ## TODO
 
 I have the following on my to-do list:
 
 - A better solution to store the API configuration in a more secure place
 - Add cmdlets for TVM
-- Add cmdlets to manage custom indicators
+- ~~Add cmdlets to manage custom indicators~~ added in version 0.0.2
 - Add more query templates for advanced hunting
 - Create more Module related Pester tests
+
+---
 
 ## Credits
 
