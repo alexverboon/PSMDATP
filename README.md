@@ -94,6 +94,7 @@ get-command -Module PSMDATP | Select Name
 You will see something like this
 ```powershell
 Add-MDATPDeviceTag
+Add-MDATPIndicator{
 Get-MDATPAlert
 Get-MDATPCollectionPackageUri
 Get-MDATPDevice
@@ -104,6 +105,7 @@ Get-MDATPInvestigation
 Get-MDATPQuery
 Remove-MDATPDevice
 Remove-MDATPDeviceTag
+Remove-MDATPIndicator
 Start-MDATPAppRestriction
 Start-MDATPAVScan
 Start-MDATPInvestigation
