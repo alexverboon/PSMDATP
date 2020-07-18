@@ -103,6 +103,8 @@ Get-MDATPDeviceTag
 Get-MDATPIndicator
 Get-MDATPInvestigation
 Get-MDATPQuery
+Get-MDATPTvmRecommendation
+Get-MDATPTvmVulnerability
 Remove-MDATPDevice
 Remove-MDATPDeviceTag
 Remove-MDATPIndicator
@@ -147,11 +149,12 @@ If you have an idea or want to contribute to this project please submit a sugges
 
 ## Release Notes
 
-| Version |    Date    |                           Notes                           |
-| ------- | ---------- | --------------------------------------------------------- |
-| 0.0.1   | 15.04.2020 | Initial Release                                           |
-| 0.0.2   | 03.05.2020 | Added Add-MDATPIndicator and Remove-MDATPIndictor cmdlets |
-
+| Version |    Date    |                           Notes                                |
+| ------- | ---------- | -------------------------------------------------------------- |
+| 0.0.1   | 15.04.2020 | Initial Release                                                |
+| 0.0.2   | 03.05.2020 | Added Add-MDATPIndicator and Remove-MDATPIndictor cmdlets      |
+| 1.0.0   | 18.07.2020 | Added Get-MDATPTvmRecommendation and Get-MDATPTvmVulnerability |
+|         |            | cmdlets, updated the API uri for the Get-MDATPAlerts cmdlet    |
 ---
 
 ## TODO
@@ -159,7 +162,7 @@ If you have an idea or want to contribute to this project please submit a sugges
 I have the following on my to-do list:
 
 - A better solution to store the API configuration in a more secure place
-- Add cmdlets for TVM
+- ~~Add cmdlets for TVM~~ added in version 1.0.0
 - ~~Add cmdlets to manage custom indicators~~ added in version 0.0.2
 - Add more query templates for advanced hunting
 - Create more Module related Pester tests
