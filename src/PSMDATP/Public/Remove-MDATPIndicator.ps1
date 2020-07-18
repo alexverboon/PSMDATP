@@ -3,12 +3,13 @@ function Remove-MDATPIndicator{
     .Synopsis
     Remove-MDATPIndicator
 
-    .Description
-    Remove-MDATPIndicator removes a custom indicator from MDATP
-
+    .DESCRIPTION
+    Remove-MDATPIndicator removes a custom indicator from the Microsoft Defender ATP 
+    instance
+        
     .PARAMETER IndicatorID
     The unique custom indicator ID
-
+    
     .PARAMETER MTPConfigFile
     The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
 
@@ -16,7 +17,7 @@ function Remove-MDATPIndicator{
     Remove-MDATPIndicator -IndicatorID 25
 
     This command removes the custom indicator with id 25
-
+    
     .NOTES
     Version:        1.0
     Author:         Alex Verboon
@@ -73,8 +74,6 @@ function Remove-MDATPIndicator{
             redirectUri   = "https://localhost:8000"
         }
         $Response = Invoke-RestMethod -Method Post -Uri $OAuthUri -Body $Body
-        #$Authorization = Invoke-RestMethod -Method Post -Uri $OAuthUri -Body $Body -ContentType "application/x-www-form-urlencoded" -UseBasicParsing
-        #$access_token = $Authorization.access_token
 
         $headers = @{
             'Content-Type' = 'application/json'
@@ -83,7 +82,6 @@ function Remove-MDATPIndicator{
         }
     }
     Process{
-        # MDATP API URI
         Try{
             $indicatorsuri = "https://api.securitycenter.windows.com/api/indicators"
             $indicators = @(Invoke-RestMethod -Uri $indicatorsuri -Headers $Headers -Body $Body -Method Get -Verbose -ContentType application/json)

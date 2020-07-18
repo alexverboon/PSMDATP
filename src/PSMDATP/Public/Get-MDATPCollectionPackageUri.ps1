@@ -30,9 +30,6 @@
 
     This comand first retrieves the last collection package request ID and stores the investigation package into the users download folder
 
-.COMPONENT
-    <%=$PLASTER_PARAM_ModuleName%>
-
     .NOTES
     Version:        1.0
     Author:         Alex Verboon

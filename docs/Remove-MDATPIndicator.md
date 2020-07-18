@@ -18,8 +18,8 @@ Remove-MDATPIndicator [-IndicatorID] <Int32> [[-MTPConfigFile] <String>] [-WhatI
 ```
 
 ## DESCRIPTION
-
-Removes a custom indicator from MDATP
+Remove-MDATPIndicator removes a custom indicator from the Microsoft Defender ATP 
+instance
 
 ## EXAMPLES
 

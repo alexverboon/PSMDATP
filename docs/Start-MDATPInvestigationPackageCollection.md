@@ -84,7 +84,7 @@ Accept wildcard characters: False
 ```
 
 ### -MTPConfigFile
-API Configuration file
+The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
 
 ```yaml
 Type: String

@@ -5,41 +5,40 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-MDATPAlert
+# Get-MDATPTvmRecommendation
 
 ## SYNOPSIS
-Get-MDATPAlert
+Get-MDATPTvmRecommendation
 
 ## SYNTAX
 
 ```
-Get-MDATPAlert [[-Severity] <String>] [[-PastHours] <String>] [[-MTPConfigFile] <String>] [<CommonParameters>]
+Get-MDATPTvmRecommendation [[-recommendationCategory] <String>] [-publicexploit] [[-MTPConfigFile] <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Get-MDATPAlert retrieves Microsoft Defender Advanced Threat Protection alerts exposed  through the Microsoft Defender Advanced Threat Protection Alerts Rest API.
+Get-MDATPTvmRecommendation retrieves Microsoft Defender Advanced Threat Protection Threat and Vulnerability Management
+security recommendations
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Get-WDATPAlert
+Get-MDATPTvmRecommendation
 ```
 
-This command retrieves all alerts
+This command retrieves all TVM security recommendations
 
 ### EXAMPLE 2
 ```
-Get-MDATPAlert -PastHours 168 -Severity Informational
+$tvmrecommendations = Get-MDATPTvmRecommendation -MTPConfigFile "C:\Users\Alex\Documents\WindowsPowerShell\Modules\PSMDATP\PoshMTPconfig.json"
 ```
-
-This command retrieves all alerts from the past 7 days with severity level Informational
 
 ## PARAMETERS
 
-### -Severity
-Provides an option to filter the output by Severity.
-Low, Medium, High.
+### -recommendationCategory
+Category or grouping to which the configuration belongs: Application, OS, Network, Accounts, Security controls
 
 ```yaml
 Type: String
@@ -53,17 +52,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PastHours
-Provides an option to filter the results by past hours when the alert was created.
+### -publicexploit
+Setting this parameter limits the results to security recommendations that address a public exploit
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
-Default value: None
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -77,7 +76,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -92,9 +91,9 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## OUTPUTS
 
 ## NOTES
-Version:        1.1
+Version:        1.0
 Author:         Alex Verboon
-Creation Date:  10.04.2020
-Purpose/Change: update config.json
+Creation Date:  18.07.2020
+Purpose/Change: Initial script development
 
 ## RELATED LINKS

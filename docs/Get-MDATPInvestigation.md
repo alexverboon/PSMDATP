@@ -147,9 +147,6 @@ The current state of the investigation.
 Possible values are:
 Unknown, Terminated, SuccessfullyRemediated, Benign, Failed, PartiallyRemediated, Running, PendingApproval, PendingResource, PartiallyInvestigated, TerminatedByUser, TerminatedBySystem, Queued, InnerFailure, PreexistingAlert, UnsupportedOs, UnsupportedAlertType, SuppressedAlert
 
-PARAMETER MTPConfigFile
-The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the ..\config\ folder.
-
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -163,7 +160,7 @@ Accept wildcard characters: False
 ```
 
 ### -MTPConfigFile
-API Configuration file
+The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
 
 ```yaml
 Type: String

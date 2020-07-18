@@ -34,7 +34,7 @@ Start-MDATPAVScan initiates an Antivirus scan on the specified device
 Start-MDATPAVScan -DeviceName testclient6 -ScanType Quick -Comment "better check"
 ```
 
-ThIS command starts a quck AV scan on device testclient6
+This command starts a quck AV scan on device testclient6
 
 ## PARAMETERS
 
@@ -99,7 +99,7 @@ Accept wildcard characters: False
 ```
 
 ### -MTPConfigFile
-API Configuration file
+The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
 
 ```yaml
 Type: String

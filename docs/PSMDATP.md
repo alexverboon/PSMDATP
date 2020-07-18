@@ -2,7 +2,7 @@
 Module Name: PSMDATP
 Module Guid: 5b1f66a1-78d5-4d12-9c89-0bb749da773f
 Download Help Link: NA
-Help Version: 0.0.2
+Help Version: 1.0.0
 Locale: en-US
 ---
 
@@ -40,6 +40,12 @@ Get-MDATPInvestigation
 
 ### [Get-MDATPQuery](Get-MDATPQuery.md)
 Get-MDATPQuery
+
+### [Get-MDATPTvmRecommendation](Get-MDATPTvmRecommendation.md)
+Get-MDATPTvmRecommendation
+
+### [Get-MDATPTvmVulnerability](Get-MDATPTvmVulnerability.md)
+Get-MDATPTvmVulnerability
 
 ### [Remove-MDATPDevice](Remove-MDATPDevice.md)
 Remove-MDATPDevice

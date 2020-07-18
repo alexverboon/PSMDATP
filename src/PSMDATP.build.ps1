@@ -36,7 +36,7 @@ $str = @()
 $str = 'Clean', 'ValidateRequirements'
 $str += 'FormattingCheck'
 $str += 'Analyze', 'Test'
-# $str += 'CreateHelpStart'
+ $str += 'CreateHelpStart'
 $str += 'Build', 'InfraTest', 'Archive'
 Add-BuildTask -Name . -Jobs $str
 
@@ -316,6 +316,10 @@ Add-BuildTask CreateMarkdownHelp -After CreateHelpStart {
     Write-Build Gray '           Verifying documentation...'
     $MissingDocumentation = Select-String -Path "$($script:ArtifactsPath)\docs\*.md" -Pattern "({{.*}})"
 
+    $MissingDocumentation
+    pause
+
+
     if ($MissingDocumentation.Count -gt 0) {
         Write-Build Yellow '             The documentation that got generated resulted in missing sections which should be filled out.'
         Write-Build Yellow '             Please review the following sections in your comment based help, fill out missing information and rerun this build:'
@@ -360,9 +364,9 @@ Add-BuildTask Build {
     Write-Build Gray '        ...manifest copy complete.'
 
     Write-Build Gray '        Merging Public and Private functions to one module file...'
-    #$private = "$script:ModuleSourcePath\Private"
+    $private = "$script:ModuleSourcePath\Private"
     $scriptContent = [System.Text.StringBuilder]::new()
-    #$powerShellScripts = Get-ChildItem -Path $script:ModuleSourcePath -Filter '*.ps1' -Recurse
+    $powerShellScripts = Get-ChildItem -Path $script:ModuleSourcePath -Filter '*.ps1' -Recurse
     $powerShellScripts = Get-ChildItem -Path $script:ArtifactsPath -Recurse | Where-Object {$_.Name -match '^*.ps1$'}
     foreach ($script in $powerShellScripts) {
         $null = $scriptContent.Append((Get-Content -Path $script.FullName -Raw))

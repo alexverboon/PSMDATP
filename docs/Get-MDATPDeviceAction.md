@@ -41,23 +41,25 @@ Get-MDATPDeviceAction retrieves machine MDATP actions
 ### EXAMPLE 1
 ```
 Get-MDATPDeviceAction -DeviceName computer02
-This command retrieves the actions for device 'computer02'
 ```
 
+This command retrieves the actions for device 'computer02'
 
-EXAMPLE
+### EXAMPLE 2
+```
 Get-MDATPDeviceAction -DeviceID 70077ccc272ab3baeb991c09442c5657d22bfc5c
+```
 
 This command retrieves the actions for the device with the specified device id
 
-### EXAMPLE 2
+### EXAMPLE 3
 ```
 Get-MDATPDeviceAction -ActionType CollectInvestigationPackage
 ```
 
 This command retreives all machine actions with the specified action type
 
-### EXAMPLE 3
+### EXAMPLE 4
 ```
 Get-MDATPDeviceAction -All
 ```
@@ -142,8 +144,7 @@ Accept wildcard characters: False
 ```
 
 ### -MTPConfigFile
-The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json is used
-that must be located in the ..\config\ folder.
+The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
 
 ```yaml
 Type: String
@@ -172,4 +173,3 @@ Creation Date:  12.04.2020
 Purpose/Change: Initial script development
 
 ## RELATED LINKS
-
