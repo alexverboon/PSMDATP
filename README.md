@@ -8,16 +8,16 @@
     <img src="./media/small_psmdatp.png" alt="PSMDATP Logo" >
 </p>
 
-Welcome to the Microsoft Defender Advanced Threat Protection PowerShell module!
+Welcome to the Microsoft Defender for Endpoints PowerShell module!
 
-This module is a collection of easy-to-use cmdlets and functions designed to make it easy to interface with the Microsoft Defender Advanced Threat Protection API.
+This module is a collection of easy-to-use cmdlets and functions designed to make it easy to interface with the Microsoft Defender for Endpoint API.
 
 ## Motivation
 
 I created this PowerShell module for MDATP for the following reasons:
 
 1. Advance my PowerShell skills
-2. Provide an easy way to interact with MDATP through PowerShell because I prefer automation over manual tasks
+2. Provide an easy way to interact with MDE through PowerShell because I prefer automation over manual tasks
 
 ## Prerequisites
 
@@ -92,7 +92,9 @@ get-command -Module PSMDATP | Select Name
 ```
 
 You will see something like this
+
 ```powershell
+
 Add-MDATPDeviceTag
 Add-MDATPIndicator{
 Get-MDATPAlert
@@ -105,9 +107,11 @@ Get-MDATPInvestigation
 Get-MDATPQuery
 Get-MDATPTvmRecommendation
 Get-MDATPTvmVulnerability
+Get-MDATPEndpointStatus
 Remove-MDATPDevice
 Remove-MDATPDeviceTag
 Remove-MDATPIndicator
+Set-MDATPAlert
 Start-MDATPAppRestriction
 Start-MDATPAVScan
 Start-MDATPInvestigation
@@ -115,6 +119,7 @@ Start-MDATPInvestigationPackageCollection
 Start-MDATPIsolation
 Stop-MDATPAppRestriction
 Stop-MDATPIsolation
+
 ```
 
 For more details about the cmdlets included in this module check out the [cmdlets documentation page](./docs/PSMDATP.md)
@@ -124,7 +129,7 @@ For more details about the cmdlets included in this module check out the [cmdlet
 Run the following command to retrieve alerts from the past 30 days
 
 ```powershell
-Get-MDATPAlert -PastHours 720
+Get-MDATPAlert -Severity High
 ```
 
 ### List MDATP Devices
@@ -145,6 +150,10 @@ If you have an idea or want to contribute to this project please submit a sugges
 
 **Alex Verboon** [Twitter](https://twitter.com/alexverboon)
 
+## Contributors
+
+**Dan Lacher** [Twitter](https://twitter.com/DanLacher)
+
 ---
 
 ## Release Notes
@@ -155,6 +164,7 @@ If you have an idea or want to contribute to this project please submit a sugges
 | 0.0.2   | 03.05.2020 | Added Add-MDATPIndicator and Remove-MDATPIndictor cmdlets      |
 | 1.0.0   | 18.07.2020 | Added Get-MDATPTvmRecommendation and Get-MDATPTvmVulnerability |
 |         |            | cmdlets, updated the API uri for the Get-MDATPAlerts cmdlet    |
+| 1.1.0   | 22.12.2020 | Added Set-MDATPAlert and Get-MDATPEndpointStatus               |
 ---
 
 ## TODO
