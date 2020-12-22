@@ -1,4 +1,4 @@
-# Microsoft Defender Advanced Threat Protection PowerShell Module
+# Microsoft Defender for Endpoint PowerShell Module
 
 [![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-5.1+-purple.svg)](https://github.com/PowerShell/PowerShell) ![Cross Platform](https://img.shields.io/badge/platform-windows-lightgrey)
 [![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/psmdatp)](https://www.powershellgallery.com/packages/PSMDATP) [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/psmdatp)](https://www.powershellgallery.com/packages/PSMDATP)
@@ -8,7 +8,7 @@
     <img src="./media/small_psmdatp.png" alt="PSMDATP Logo" >
 </p>
 
-Welcome to the Microsoft Defender for Endpoints PowerShell module!
+Welcome to the Microsoft Defender for Endpoint PowerShell module!
 
 This module is a collection of easy-to-use cmdlets and functions designed to make it easy to interface with the Microsoft Defender for Endpoint API.
 
