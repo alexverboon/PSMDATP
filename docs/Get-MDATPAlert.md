@@ -92,9 +92,9 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## OUTPUTS
 
 ## NOTES
-Version:        1.1
+Version:        1.2
 Author:         Alex Verboon
-Creation Date:  10.04.2020
-Purpose/Change: update config.json
+Creation Date:  18.07.2020
+Purpose/Change: updated API uri
 
 ## RELATED LINKS

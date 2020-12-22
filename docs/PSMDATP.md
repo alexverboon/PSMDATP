@@ -2,13 +2,13 @@
 Module Name: PSMDATP
 Module Guid: 5b1f66a1-78d5-4d12-9c89-0bb749da773f
 Download Help Link: NA
-Help Version: 1.0.0
+Help Version: 1.1.0
 Locale: en-US
 ---
 
 # PSMDATP Module
 ## Description
-"Manage Microsoft Defender ATP with PowerShell"
+"Manage Microsoft Defender for Endpoint with PowerShell"
 
 ## PSMDATP Cmdlets
 ### [Add-MDATPDeviceTag](Add-MDATPDeviceTag.md)
@@ -31,6 +31,9 @@ Get-MDATPDeviceAction
 
 ### [Get-MDATPDeviceTag](Get-MDATPDeviceTag.md)
 Get-MDATPDeviceTag
+
+### [Get-MDATPEndpointStatus](Get-MDATPEndpointStatus.md)
+Get-MDATPEndpointStatus
 
 ### [Get-MDATPIndicator](Get-MDATPIndicator.md)
 Get-MDATPIndicator
@@ -55,6 +58,9 @@ Remove-MDATPDeviceTag
 
 ### [Remove-MDATPIndicator](Remove-MDATPIndicator.md)
 Remove-MDATPIndicator
+
+### [Set-MDATPAlert](Set-MDATPAlert.md)
+Set-MDATPAlert
 
 ### [Start-MDATPAppRestriction](Start-MDATPAppRestriction.md)
 Start-MDATPAppRestriction

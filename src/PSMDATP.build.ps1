@@ -36,7 +36,7 @@ $str = @()
 $str = 'Clean', 'ValidateRequirements'
 $str += 'FormattingCheck'
 $str += 'Analyze', 'Test'
- $str += 'CreateHelpStart'
+$str += 'CreateHelpStart'
 $str += 'Build', 'InfraTest', 'Archive'
 Add-BuildTask -Name . -Jobs $str
 
@@ -44,7 +44,7 @@ Add-BuildTask -Name . -Jobs $str
 #Add-BuildTask TestLocal Clean, Analyze, Test
 
 #Local help file creation process
-#Add-BuildTask HelpLocal Clean,CreateHelpStart,UpdateCBH
+# Add-BuildTask HelpLocal Clean,CreateHelpStart,UpdateCBH
 
 # Pre-build variables to be used by other portions of the script
 Enter-Build {
@@ -177,7 +177,8 @@ Add-BuildTask FormattingCheck {
 
     if ($scriptAnalyzerResults) {
         $scriptAnalyzerResults | Format-Table
-        throw '      PSScriptAnalyzer code formatting check did not adhere to {0} standards' -f $scriptAnalyzerParams.Setting
+        #throw '      PSScriptAnalyzer code formatting check did not adhere to {0} standards' -f $scriptAnalyzerParams.Setting
+        write-build Green 'WARNINGS'
     }
     else {
         Write-Build Green '      ...Formatting Analyze Complete!'
@@ -316,8 +317,8 @@ Add-BuildTask CreateMarkdownHelp -After CreateHelpStart {
     Write-Build Gray '           Verifying documentation...'
     $MissingDocumentation = Select-String -Path "$($script:ArtifactsPath)\docs\*.md" -Pattern "({{.*}})"
 
-    $MissingDocumentation
-    pause
+    # $MissingDocumentation
+    
 
 
     if ($MissingDocumentation.Count -gt 0) {
