@@ -150,14 +150,19 @@ function Remove-MDATPDevice{
                     }
                 }
                 Catch{
-                    $ex = $_.Exception
-                    $errorResponse = $ex.Response.GetResponseStream()
-                    $reader = New-Object System.IO.StreamReader($errorResponse)
-                    $reader.BaseStream.Position = 0
-                    $reader.DiscardBufferedData()
-                    $responseBody = $reader.ReadToEnd();
-                    Write-Verbose "Response content:`n$responseBody"
-                    Write-Error "Request to $Uri failed with HTTP Status $($ex.Response.StatusCode) $($ex.Response.StatusDescription)"
+                    $ErrorDetails = $error[0].ErrorDetails
+                    If ($ErrorDetails -Match "code"":""ActiveRequestAlreadyExists"){
+                        Write-Host "This system is already in the process of being Offboarded from MDATP."
+                    } else {
+                        $ex = $_.Exception
+                        $errorResponse = $ex.Response.GetResponseStream()
+                        $reader = New-Object System.IO.StreamReader($errorResponse)
+                        $reader.BaseStream.Position = 0
+                        $reader.DiscardBufferedData()
+                        $responseBody = $reader.ReadToEnd();
+                        Write-Verbose "Response content:`n$responseBody"
+                        Write-Error "Request to $Uri failed with HTTP Status $($ex.Response.StatusCode) $($ex.Response.StatusDescription)"
+                    }
                 }
             }
         }
