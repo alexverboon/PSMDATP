@@ -113,9 +113,8 @@ function Remove-MDATPDevice{
         if (!$DeviceID) {
             # change the devicename to lowercase
             $DeviceName = $DeviceName.ToLower()
-            If ($DeviceName){
-                $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.computerDnsName -like "$DeviceName"})
-                $MDATPDeviceID = $ActionDevice.id
+            $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.computerDnsName -like "$DeviceName"})
+            $MDATPDeviceID = $ActionDevice.id
             }
         } Else {
             $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.id -like "$DeviceID"})
