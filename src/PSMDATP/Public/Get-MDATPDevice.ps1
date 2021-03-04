@@ -105,7 +105,6 @@
 
         Write-Verbose "Checking for $PoshMTPconfigFilePath"
         If (Test-Path -Path $PoshMTPconfigFilePath -PathType Leaf){
-            $Uri             = $ConfigSettings.API_MDATP.Uri
             $ConfigSettings  = @(Get-Content -Path "$PoshMTPconfigFilePath" | ConvertFrom-Json)
             $OAuthUri        = $ConfigSettings.API_MDATP.OAuthUri
             $ClientID        = $ConfigSettings.API_MDATP.ClientID
@@ -121,7 +120,7 @@
         # Connect with MDATP API
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $Body = @{
-            resource      = $Uri
+            resource      = "https://api.securitycenter.windows.com"
             client_id     = $ClientID
             client_secret = $ClientSecret
             grant_type    = 'client_credentials'
@@ -135,7 +134,7 @@
         }
     }
     Process{
-        $DeviceUri = "${Uri}/api/machines"
+        $DeviceUri = "https://api.securitycenter.windows.com/api/machines"
 
         If($PSBoundParameters.ContainsKey("HealthStatus")){
             $HealthFilter = "healthStatus eq '$Healthstatus'"
