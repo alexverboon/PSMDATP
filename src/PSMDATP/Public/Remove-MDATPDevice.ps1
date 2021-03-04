@@ -33,15 +33,12 @@ function Remove-MDATPDevice{
     [CmdletBinding(SupportsShouldProcess)]
     Param(
         # Computername of the MDATP managed device
-        [Parameter(Mandatory=$true,
-            ParameterSetName='DeviceName')]
-        [ValidateNotNullOrEmpty()]
+        # Computername of the MDATP managed device
+        [Parameter(Mandatory=$false)]
         [String]$DeviceName,
 
         # Unique device id of the MDATP managed device
-        [Parameter(Mandatory=$true,
-            ParameterSetName='DeviceID')]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory=$false)]
         [String]$DeviceID,
 
         # Offboard reason
@@ -54,6 +51,12 @@ function Remove-MDATPDevice{
     )
 
     Begin{
+        #Check if either Name or ID provided
+        if (!$DeviceName -and !$DeviceID) {
+            Write-Host "Please provide either the DeviceName or DeviceID parameters." -ForegroundColor Red
+            Break
+        }
+        
         # Begin Get API Information
         If ($MTPConfigFile){
             $PoshMTPconfigFilePath = $MTPConfigFile
@@ -102,18 +105,21 @@ function Remove-MDATPDevice{
         # MDATP API URI
         $MDATP_API_URI = "https://api.securitycenter.windows.com/api"
         $OffboardingStatus = $false
-
-        # change the devicename to lowercase
-        $DeviceName = $DeviceName.ToLower()
-
+        
         # Get the MDATP devices
         $MachineAPI = "$MDATP_API_URI/machines"
         $Machines = @(Invoke-RestMethod -Uri "$MachineAPI" -Headers $Headers -Method Get -Verbose -ContentType application/json)
-        If ($DeviceName){
-            $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.computerDnsName -like "$DeviceName"})
-        }
-        Elseif ($DeviceID){
+        
+        if (!$DeviceID) {
+            # change the devicename to lowercase
+            $DeviceName = $DeviceName.ToLower()
+            If ($DeviceName){
+                $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.computerDnsName -like "$DeviceName"})
+                $MDATPDeviceID = $ActionDevice.id
+            }
+        } Else {
             $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.id -like "$DeviceID"})
+            $DeviceName = $ActionDevice.computerDnsName
         }
 
         If($ActionDevice.count -gt 1){
@@ -126,7 +132,6 @@ function Remove-MDATPDevice{
             Break
         }
         Elseif($ActionDevice.count -eq 1){
-            $MDATPDeviceID = $ActionDevice.id
             # set offboarding comment
             $OffboardReasonInput = @{"Comment" = "$OffboardReason"} | ConvertTo-Json
             if ($pscmdlet.ShouldProcess("$DeviceName", "offobarding device from MDATP")){
