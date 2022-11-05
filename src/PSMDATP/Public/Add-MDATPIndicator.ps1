@@ -32,6 +32,9 @@
 
     .PARAMETER recommendedActions
     TI indicator alert recommended actions. Optional
+    
+    .PARAMETER GenerateAlert
+    To flag the indicator to generate an alert, optional but defaults to True: $True, $False
 
     .PARAMETER MTPConfigFile
     The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
@@ -55,10 +58,13 @@
     .EXAMPLE
     Add-MDATPIndicator -IndicatorType IpAddress -IndicatorValue 138.223.70.10 -Action Alert -Title "IP Address indicator 138.223.70.10" -Description "access detected" -severity Medium
 
+    .EXAMPLE
+    Add-MDATPIndicator -IndicatorType IpAddress -IndicatorValue 138.223.70.10 -Action Alert -Title "IP Address indicator 138.223.70.10" -Description "access detected" -severity Medium -generateAlert $False
+
     This command adds an IP indicator
 
     .NOTES
-    Version:        1.0
+    Version:        1.0.1
     Author:         Alex Verboon
     Creation Date:  05.05.2020
     Purpose/Change: Initial script development
@@ -111,6 +117,10 @@
         # Alert recommendedActions
         [Parameter(Mandatory=$false)]
         [String]$recommendedActions,
+
+        # Alert GenerateAlert
+        [Parameter(Mandatory=$false)]
+        [String]$generateAlert,
 
         # API Configuration file
         [Parameter(Mandatory=$false)]
@@ -172,7 +182,8 @@
             "description"        = "$Description";
             "expirationTime"     = "$expirationTime";
             "severity"           = "$severity";
-            "recommendedActions" = "$recommendedActions"
+            "recommendedActions" = "$recommendedActions";
+            "generateAlert"      = "$generateAlert";
         }
 
         If ([string]::IsNullOrEmpty($application)){
@@ -185,6 +196,10 @@
 
         If ([string]::IsNullOrEmpty($expirationTime)){
             $AddIndicator.Remove('expirationTime')
+        }
+        
+        If ([string]::IsNullOrEmpty($generateAlert)){
+            $AddIndicator.Remove('generateAlert')
         }
 
         $AddIndicator = $AddIndicator | ConvertTo-Json

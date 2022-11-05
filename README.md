@@ -96,7 +96,7 @@ You will see something like this
 ```powershell
 
 Add-MDATPDeviceTag
-Add-MDATPIndicator{
+Add-MDATPIndicator
 Get-MDATPAlert
 Get-MDATPCollectionPackageUri
 Get-MDATPDevice
@@ -165,6 +165,8 @@ If you have an idea or want to contribute to this project please submit a sugges
 | 1.0.0   | 18.07.2020 | Added Get-MDATPTvmRecommendation and Get-MDATPTvmVulnerability |
 |         |            | cmdlets, updated the API uri for the Get-MDATPAlerts cmdlet    |
 | 1.1.0   | 22.12.2020 | Added Set-MDATPAlert and Get-MDATPEndpointStatus               |
+| 1.1.1   | 22.11.2022 | Added generateAlert flag to Add-MDATPIndicator                 |
+
 ---
 
 ## TODO
