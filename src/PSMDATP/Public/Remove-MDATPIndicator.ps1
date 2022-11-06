@@ -84,7 +84,7 @@ function Remove-MDATPIndicator{
     Process{
         Try{
             $indicatorsuri = "https://api.securitycenter.windows.com/api/indicators"
-            $indicators = @(Invoke-RestMethod -Uri $indicatorsuri -Headers $Headers -Body $Body -Method Get -Verbose -ContentType application/json)
+            $indicators = @(Invoke-RestMethod -Uri $indicatorsuri -Headers $Headers -Body $Body -Method Get -ContentType application/json)
         }
         Catch{
             $errorMessage = $_.Exception.Message
