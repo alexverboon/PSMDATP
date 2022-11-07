@@ -145,7 +145,7 @@ function Get-MDATPInvestigation{
         If ($DeviceName){
             $MachineAPI = "https://api.securitycenter.windows.com/api/machines"
             $DeviceName = $DeviceName.ToLower()
-            $Machines = @(Invoke-RestMethod -Uri "$MachineAPI" -Headers $Headers -Method Get -Verbose -ContentType application/json)
+            $Machines = @(Invoke-RestMethod -Uri "$MachineAPI" -Headers $Headers -Method Get -ContentType application/json)
             $ActionDevice = @($machines.value | Select-Object -Property *  | Where-Object {$_.computerDnsName -like "$DeviceName"})
 
             If($ActionDevice.count -gt 1){
@@ -200,7 +200,7 @@ function Get-MDATPInvestigation{
         }
         # Retrieve MDATP Investigations data
         Try{
-            $output = @(Invoke-RestMethod -Uri $InvestigationUri -Headers $Headers -Method Get -Verbose -ContentType application/json)
+            $output = @(Invoke-RestMethod -Uri $InvestigationUri -Headers $Headers -Method Get -ContentType application/json)
         }
         Catch{
             $errorMessage = $_.Exception.Message
