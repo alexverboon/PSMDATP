@@ -87,7 +87,7 @@
         # The Action taken
         [Parameter(Mandatory=$true)]
         [ValidateNotNullorEmpty()]
-        [ValidateSet('Alert','AlertAndBlock','Block')]
+        [ValidateSet('Allow,'Alert','AlertAndBlock','Block','BlockAndRemediate')]
         [String]$Action,
 
         # associated application

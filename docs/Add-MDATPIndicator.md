@@ -94,7 +94,7 @@ Accept wildcard characters: False
 
 ### -Action
 The action that will be taken if the indicator will be discovered in the organization.
-Possible values are: "Alert", "AlertAndBlock", and "Allowed".
+Possible values are: "Allow", Alert", "AlertAndBlock", "Block", and "BlockAndRemediate".
 Required
 
 ```yaml
