@@ -50,6 +50,11 @@ This command creates FileSha256 indicator
 Add-MDATPIndicator -IndicatorType IpAddress -IndicatorValue 138.223.70.10 -Action Alert -Title "IP Address indicator 138.223.70.10" -Description "access detected" -severity Medium
 ```
 
+### EXAMPLE 5
+```
+Add-MDATPIndicator -IndicatorType IpAddress -IndicatorValue 138.223.70.10 -Action Alert -Title "IP Address indicator 138.223.70.10" -Description "access detected" -severity Medium -generateAlert $False
+```
+
 This command adds an IP indicator
 
 ## PARAMETERS
@@ -89,7 +94,7 @@ Accept wildcard characters: False
 
 ### -Action
 The action that will be taken if the indicator will be discovered in the organization.
-Possible values are: "Alert", "AlertAndBlock", and "Allowed".
+Possible values are: "Allow", Alert", "AlertAndBlock", "Block", and "BlockAndRemediate".
 Required
 
 ```yaml
@@ -201,6 +206,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -recommendedActions
+TI indicator generate alert.
+Optional
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 10
+Default value: None ($True)
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -MTPConfigFile
 The MTPConfigFile contains the API connection information, if not specified a default PoshMTPconfig.json  is used that must be located in the module folder
 
@@ -210,7 +231,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 10
+Position: 11
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -256,7 +277,7 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ## OUTPUTS
 
 ## NOTES
-Version:        1.0
+Version:        1.1.1
 Author:         Alex Verboon
 Creation Date:  05.05.2020
 Purpose/Change: Initial script development
