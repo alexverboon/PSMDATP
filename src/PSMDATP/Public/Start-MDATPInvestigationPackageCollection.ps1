@@ -31,17 +31,12 @@ function Start-MDATPInvestigationPackageCollection{
     #>
     [CmdletBinding(SupportsShouldProcess)]
     Param(
-
         # Computername of the MDATP managed device
-        [Parameter(Mandatory=$true,
-            ParameterSetName='DeviceName')]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory=$false)]
         [String]$DeviceName,
 
         # Unique device id of the MDATP managed device
-        [Parameter(Mandatory=$true,
-            ParameterSetName='DeviceID')]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory=$false)]
         [String]$DeviceID,
 
         # Comment for the request
@@ -54,6 +49,12 @@ function Start-MDATPInvestigationPackageCollection{
     )
 
     Begin{
+        #Check if either Name or ID provided
+        if (!$DeviceName -and !$DeviceID) {
+            Write-Host "Please provide either the DeviceName or DeviceID parameters." -ForegroundColor Red
+            Break
+        }
+        
         # Begin Get API Information
         If ($MTPConfigFile){
             $PoshMTPconfigFilePath = $MTPConfigFile
@@ -99,21 +100,21 @@ function Start-MDATPInvestigationPackageCollection{
         }
     }
     Process{
+        ess{
         $MDATP_API_URI = "https://api.securitycenter.windows.com/api"
-
         If([string]::IsNullOrEmpty($Comment)){
             $Comment = "submitted by automation"
         }
-        $DeviceName = $DeviceName.ToLower()
-
-        # Get the MDATP devices
         $MachineAPI = "$MDATP_API_URI/machines"
         $Machines = @(Invoke-RestMethod -Uri "$MachineAPI" -Headers $Headers -Method Get -Verbose -ContentType application/json)
-        If ($DeviceName){
+        
+        if (!$DeviceID) {
+            $DeviceName = $DeviceName.ToLower()
             $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.computerDnsName -like "$DeviceName"})
-        }
-        Elseif ($DeviceID){
+            $MDATPDeviceID = $ActionDevice.id
+        } Else {
             $ActionDevice = @($machines.value | Select-Object * | Where-Object {$_.id -like "$DeviceID"})
+            $DeviceName = $ActionDevice.computerDnsName
         }
 
         If($ActionDevice.count -gt 1){
@@ -126,7 +127,6 @@ function Start-MDATPInvestigationPackageCollection{
             Break
         }
         Elseif($ActionDevice.count -eq 1){
-            $MDATPDeviceID = $ActionDevice.id
             if ($pscmdlet.ShouldProcess("$DeviceName", "Start investigation package collection")){
                 Try{
                     Write-Verbose "Device: $DeviceName Id:$MDATPDeviceID"
